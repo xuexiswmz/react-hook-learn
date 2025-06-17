@@ -1,5 +1,5 @@
 function App() {
-  return <div>useEffect</div>;
+  return <div>useLayoutEffect</div>;
 }
 
 export default App;
