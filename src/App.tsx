@@ -1,5 +1,5 @@
 function App() {
-  return <div>useRef</div>;
+  return <div>next hooks</div>;
 }
 
 export default App;
