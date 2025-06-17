@@ -1,5 +1,5 @@
 function App() {
-  return <div>useReducer</div>;
+  return <div>useRef</div>;
 }
 
 export default App;
