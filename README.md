@@ -1,4 +1,4 @@
-### react hook learn
+### react hooks learn
 
 #### 具体内容
 
@@ -16,20 +16,20 @@
 
 ##### 4. **useReducer 适用于复杂状态逻辑**
 
-**封装到 ruducer 里面，通过 action 触发，修改深层对象时可结合 immer**
+封装到 ruducer 里面，通过 action 触发，修改深层对象时可结合 immer
 
    - useReducer 接受两个参数，第一个参数是 reducer 函数，第二个参数是初始值
    - reducer 函数接受两个参数，第一个参数是当前状态，第二个参数是 action，action 是一个对象，包含 type 和 payload 两个属性，type 是 action 的类型，payload 是 action 的负载。
 
 ##### 5. **useRef 保存 dom 引用或其他内容**
 
-**（通过 xxref.current 获取），改变它的内容不会触发重新渲染**
+（通过 xxref.current 获取），改变它的内容不会触发重新渲染
 
    - useRef 接受一个参数，这个参数是初始值，返回一个对象，这个对象有一个 current 属性，这个属性是初始值。
 
 ##### 6. **forwardRef+useImperativeHandle**
 
-**forwardRef 将子组件 ref 转发到父组件，useImperativeHandle 可以自定义暴露给父组件的 ref 属性**
+forwardRef 将子组件 ref 转发到父组件，useImperativeHandle 可以自定义暴露给父组件的 ref 属性
 
    - forwardRef 接受一个参数，这个参数是一个函数，这个函数接受两个参数，第一个参数是 props，第二个参数是 ref 对象，这个函数返回一个 React 元素，这个 React 元素可以接受 ref 对象。
    - useImperativeHandle 接受两个参数，第一个参数是 ref 对象，第二个参数是一个函数，这个函数接受一个参数，这个参数是 ref 对象，这个函数返回一个对象，这个对象是 ref 对象的 current 属性。
@@ -41,7 +41,7 @@
 
 #####  8. **memo + useMeme + useCallback**
 
-**组合使用，减少不必要的渲染**
+组合使用，减少不必要的渲染
 
    - memo 接受一个参数，这个参数是一个 React 元素，当这个 React 元素的 props 发生变化时，memo 会重新渲染这个 React 元素。
    - useMemo 接受两个参数，第一个参数是回调函数，第二个参数是依赖数组，当依赖数组中的值发生变化时，回调函数会被执行，返回值是回调函数的返回值。
@@ -57,6 +57,15 @@
      - 使用useRef保存每次渲染的值
    - 封装了一个useInterval，使用useEffect + useRef 解决闭包陷阱问题
 
+##### 10. **受控模式和非受控模式**
+   - 受控模式就是，代码控制value，用户输入后通过onChange事件拿到值，然后setValue，重新触发渲染
+   - 非受控模式就是，设置一个defaultValue，用户自己修改value，我们通过监听onChange拿到值，然后setValue，重新触发渲染
+   - 使用场景
+      - 只是想获得用户的输入->非受控模式
+      - 实时同步表单值到父组件/对用户的输入做一些修改然后再设置到value -> 受控模式
+      - Form表单->受控模式 Form会通过Store来统一管理所有表单项
+      - 封装业务组件 都可以
+   - 封装了一个useMergeValue实现受控和非受控的切换
 #### 项目启动
 
 ```
@@ -64,4 +73,4 @@ npm i
 npm run dev
 ```
 
-把每一个文件夹下面的 app*.tsx 复制粘贴到根目录下的 app.tsx
+把每一个文件夹下面的 app*.tsx / index*.tsx 复制粘贴到根目录下的 app.tsx 
