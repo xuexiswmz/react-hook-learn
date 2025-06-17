@@ -55,7 +55,7 @@
      - 使用useReducer，直接dispatch action
      - 把state加到依赖数组中（导致定时器不是每秒执行，不推荐）
      - 使用useRef保存每次渲染的值
-       - 封装了一个useInterval，使用useEffect + useRef 解决闭包陷阱问题
+   - 封装了一个useInterval，使用useEffect + useRef 解决闭包陷阱问题
 
 #### 项目启动
 
@@ -64,4 +64,4 @@ npm i
 npm run dev
 ```
 
-把每一个文件夹下面的 app.tsx 复制粘贴到根目录下的 app.tsx
+把每一个文件夹下面的 app*.tsx 复制粘贴到根目录下的 app.tsx
