@@ -1,5 +1,5 @@
 function App() {
-  return <div>useLayoutEffect</div>;
+  return <div>useReducer</div>;
 }
 
 export default App;
