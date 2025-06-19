@@ -1,25 +1,34 @@
-import { useEffect, useRef } from "react";
-import Portal from "./api/Portal";
+import { useEffect, useState } from "react";
+import MutateObserver from "./api/MutateObserver";
 
 function App() {
-  const content = (
-    <div className="btn">
-      <button>btn</button>
-    </div>
-  );
-
-  const containerRef = useRef<HTMLElement>(null);
+  const [className, setClassName] = useState("AAA");
   useEffect(() => {
-    console.log(containerRef);
+    setTimeout(() => {
+      setClassName("BBB");
+    }, 2000);
   }, []);
 
+  const callback = function (mutationList: MutationRecord[]) {
+    console.log(mutationList);
+  };
+
   return (
-    <>
-      <Portal attach={document.body}>{content}</Portal>
-      <Portal attach={document.body} ref={containerRef}>
-        {content}
-      </Portal>
-    </>
+    <div>
+      <MutateObserver onMutate={callback}>
+        <div id="container">
+          <div className={className}>
+            {className === "AAA" ? (
+              <div>AAA</div>
+            ) : (
+              <div>
+                <p>BBB</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </MutateObserver>
+    </div>
   );
 }
 

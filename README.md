@@ -74,6 +74,9 @@ forwardRef 将子组件 ref 转发到父组件，useImperativeHandle 可以自�
       - 根据string选择attach节点，如果attach是string，则通过document.querySelector获取节点，如果attach是HTMLElement实例，则直接使用attach，默认返回document.body
       - 自动创建container，并添加到attach节点中
       
+   - 封装MutateObserver
+      - 封装useMutateObserver，使用useEffect对MutateObserver进行初始化和销毁
+      - 封装MutateObserver组件, 通过React.cloneElement给children添加ref来获取dom节点，通过useEffect监听ref的变化来更新MutateObserver实例的target
 #### 项目启动
 
 ```
