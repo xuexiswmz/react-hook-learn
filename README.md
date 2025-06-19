@@ -77,6 +77,9 @@ forwardRef 将子组件 ref 转发到父组件，useImperativeHandle 可以自�
    - 封装MutateObserver
       - 封装useMutateObserver，使用useEffect对MutateObserver进行初始化和销毁
       - 封装MutateObserver组件, 通过React.cloneElement给children添加ref来获取dom节点，通过useEffect监听ref的变化来更新MutateObserver实例的target
+
+   - 封装copy-to-clipboard
+      - 通过cloneElement给元素添加onClick事件（不用侵入元素的onClick处理函数），执行复制操作，并且还会调用原来的onClick事件
 #### 项目启动
 
 ```

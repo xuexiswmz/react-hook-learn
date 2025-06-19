@@ -1,35 +1,24 @@
-import { useEffect, useState } from "react";
-import MutateObserver from "./api/MutateObserver";
+import copy from "copy-to-clipboard";
+import CopyToClipboard from "./api/CopyToClipboard";
 
 function App() {
-  const [className, setClassName] = useState("AAA");
-  useEffect(() => {
-    setTimeout(() => {
-      setClassName("BBB");
-    }, 2000);
-  }, []);
+  function onClick(){
+    const res = copy('hello world')
+    console.log('copied',res);
+  }
+  
+  return <div>
+    
+    {/* 原生写法 */}
+    <div onClick={onClick}>copy</div>
+    
+    {/* 封装写法 */}
+    <CopyToClipboard text="hello world" onCopy={()=>console.log('copied')
+    }>
+      <div>copy</div>
+    </CopyToClipboard>
 
-  const callback = function (mutationList: MutationRecord[]) {
-    console.log(mutationList);
-  };
-
-  return (
-    <div>
-      <MutateObserver onMutate={callback}>
-        <div id="container">
-          <div className={className}>
-            {className === "AAA" ? (
-              <div>AAA</div>
-            ) : (
-              <div>
-                <p>BBB</p>
-              </div>
-            )}
-          </div>
-        </div>
-      </MutateObserver>
     </div>
-  );
 }
 
 export default App;
