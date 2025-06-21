@@ -1,11 +1,24 @@
-import useLifecycles from "./customHooks/useLifecycles";
+import { useEffect } from "react";
+import useCookie from "./customHooks/useCookie";
 
 function App() {
-  useLifecycles(
-    () => console.log("mounted"),
-    () => console.log("unmounted")
+  const [value, updateCookie, deleteCookie] = useCookie("xuexiswmz");
+
+  useEffect(() => {
+    deleteCookie();
+  }, []);
+
+  const updateCookieHandler = () => {
+    updateCookie("xuexi");
+  };
+
+  return (
+    <div>
+      <p>cookie value:{value}</p>
+      <button onClick={updateCookieHandler}>update cookie</button>
+      <button onClick={deleteCookie}>delete cookie</button>
+    </div>
   );
-  return null;
 }
 
 export default App;

@@ -12,6 +12,7 @@
   "dependencies": {
     "copy-to-clipboard": "^3.3.3",
     "immer": "^10.1.1",
+    "js-cookie": "^3.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-use": "^17.6.0"
