@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
-import useMountedState from "./customHooks/useMountedState";
+import useLifecycles from "./customHooks/useLifecycles";
 
 function App() {
-  const isMounted = useMountedState();
-  const [, setNum] = useState(0);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setNum(1);
-    }, 1000);
-  }, []);
-
-  return <div>{isMounted() ? "Mounted" : "Pending"}</div>;
+  useLifecycles(
+    () => console.log("mounted"),
+    () => console.log("unmounted")
+  );
+  return null;
 }
 
 export default App;
