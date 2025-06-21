@@ -1,10 +1,12 @@
-import { useRef } from "react";
-import useHover from "./customHooks/useHover2";
+import { useState } from "react";
+import useTimeout from "./customHooks/useTimeout";
 
 const App = () => {
-  const ref = useRef<HTMLElement>(null);
-  const isHovering = useHover(ref);
-  return <div ref={ref}>{isHovering ? "Hovering" : "Not Hovering"}</div>;
-};
+  const [state, setState] = useState(1);
+  useTimeout(() => {
+    setState(state + 1);
+  }, 3000);
 
+  return <div>{state}</div>;
+};
 export default App;
