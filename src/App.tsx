@@ -1,35 +1,16 @@
 import { useRef } from "react";
-import useScrolling from "./customHooks/useScrolling";
+import useSize from "./customHooks/useSize";
 
 const App = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const scrolling = useScrolling(scrollRef);
-
+  const ref = useRef<HTMLElement>(null);
+  const size = useSize(ref);
   return (
-    <>
-      {<div>{scrolling ? "滚动中.." : "没有滚动"}</div>}
-
-      <div ref={scrollRef} style={{ height: "200px", overflow: "auto" }}>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-        <div>xuexiswmz</div>
-      </div>
-    </>
+    <div ref={ref}>
+      <p>窗口大小：</p>
+      <p>
+        width: {size?.width}px, height: {size?.height}px
+      </p>
+    </div>
   );
 };
 

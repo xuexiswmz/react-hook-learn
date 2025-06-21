@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ahooks": "^3.8.5",
     "copy-to-clipboard": "^3.3.3",
     "immer": "^10.1.1",
     "js-cookie": "^3.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-use": "^17.6.0"
+    "react-use": "^17.6.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
