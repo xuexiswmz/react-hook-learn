@@ -1,22 +1,13 @@
-import { useEffect } from "react";
-import useCookie from "./customHooks/useCookie";
+import useHover from "./customHooks/useHover";
 
 function App() {
-  const [value, updateCookie, deleteCookie] = useCookie("xuexiswmz");
-
-  useEffect(() => {
-    deleteCookie();
-  }, []);
-
-  const updateCookieHandler = () => {
-    updateCookie("xuexi");
-  };
+  const element = () => <div>hover me </div>;
+  const [hoverable, hovered] = useHover(element);
 
   return (
     <div>
-      <p>cookie value:{value}</p>
-      <button onClick={updateCookieHandler}>update cookie</button>
-      <button onClick={deleteCookie}>delete cookie</button>
+      {hoverable}
+      <div>{hovered ? "hovered" : ""}</div>
     </div>
   );
 }
