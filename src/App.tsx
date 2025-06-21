@@ -1,17 +1,10 @@
 import { useRef } from "react";
-import useSize from "./customHooks/useSize";
+import useHover from "./customHooks/useHover2";
 
 const App = () => {
   const ref = useRef<HTMLElement>(null);
-  const size = useSize(ref);
-  return (
-    <div ref={ref}>
-      <p>窗口大小：</p>
-      <p>
-        width: {size?.width}px, height: {size?.height}px
-      </p>
-    </div>
-  );
+  const isHovering = useHover(ref);
+  return <div ref={ref}>{isHovering ? "Hovering" : "Not Hovering"}</div>;
 };
 
 export default App;
